@@ -1,27 +1,22 @@
 // (cmd l)
 
-var artboards = [doc artboards];
+var page = [doc currentPage];
+var layers = [page children];
 var handler = doc.eventHandlerManager().normalHandler();
 var numUnlocked = 0;
-var artboard, point, x, y;
+var point = [handler convertPointFromScreenCoordinates:[[[handler drawView] window] mouseLocationOutsideOfEventStream] inGroup:page];
+var x = point.x;
+var y = point.y;
 
-for (var i = 0; i < [artboards count]; i++) {
-	artboard = artboards[i];
-	point = [handler convertPointFromScreenCoordinates:[[[handler drawView] window] mouseLocationOutsideOfEventStream] inGroup:artboard];
-	x = point.x;
-	y = point.y;
+for (var i = 0; i < [layers count]; i++) {
+	var layer = [layers objectAtIndex:i];
 
-	findAndUnlockLayers([artboard layers], x, y);
-}
-
-[doc showMessage: numUnlocked + " unlocked"];
-
-function findAndUnlockLayers(layers, x, y) {
-	for (var j = 0; j < [layers count]; j++) {
-		var layer = [layers objectAtIndex:j];
+	if (![layer isMemberOfClass:[MSPage class]] &&
+			![layer isMemberOfClass:[MSArtboardGroup class]] &&
+			![layer isMemberOfClass:[MSShapeGroup class]]) {
 		var rect = layer.absoluteRect();
-		var minX = rect.rulerX();
-		var minY = rect.rulerY();
+		var minX = rect.x();
+		var minY = rect.y();
 		var maxX = minX + rect.width();
 		var maxY = minY + rect.height();
 
@@ -31,14 +26,16 @@ function findAndUnlockLayers(layers, x, y) {
 			if ([layer isMemberOfClass:[MSLayerGroup class]]) {
 				var childLayers = [layer layers];
 
-				for (var k = 0; k < [childLayers count]; k++) {
-					var childLayer = [childLayers objectAtIndex:k];
+				for (var j = 0; j < [childLayers count]; j++) {
+					var childLayer = [childLayers objectAtIndex:j];
 					unlockLayer(childLayer);
 				}
 			}
 		}
 	}
 }
+
+[doc showMessage: numUnlocked + " unlocked"];
 
 function unlockLayer(layer) {
 	if ([layer isLocked]) {
