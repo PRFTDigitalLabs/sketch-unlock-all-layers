@@ -12,8 +12,7 @@ for (var i = 0; i < [layers count]; i++) {
 	var layer = [layers objectAtIndex:i];
 
 	if (![layer isMemberOfClass:[MSPage class]] &&
-			![layer isMemberOfClass:[MSArtboardGroup class]] &&
-			![layer isMemberOfClass:[MSShapeGroup class]]) {
+			![layer isMemberOfClass:[MSArtboardGroup class]]) {
 		var rect = layer.absoluteRect();
 		var minX = rect.x();
 		var minY = rect.y();
