@@ -7,7 +7,7 @@ var artboard, point, x, y;
 
 for (var i = 0; i < [artboards count]; i++) {
 	artboard = artboards[i];
-	point = handler.mouseInScreenCoordinatesInGroup(artboard);
+	point = [handler convertPointFromScreenCoordinates:[[[handler drawView] window] mouseLocationOutsideOfEventStream] inGroup:artboard];
 	x = point.x;
 	y = point.y;
 
