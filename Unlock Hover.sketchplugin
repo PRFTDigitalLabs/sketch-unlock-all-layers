@@ -1,0 +1,48 @@
+// (cmd l)
+
+var artboards = [doc artboards];
+var handler = doc.eventHandlerManager().normalHandler();
+var numUnlocked = 0;
+var artboard, point, x, y;
+
+for (var i = 0; i < [artboards count]; i++) {
+	artboard = artboards[i];
+	point = handler.mouseInScreenCoordinatesInGroup(artboard);
+	x = point.x;
+	y = point.y;
+
+	findAndUnlockLayers([artboard layers], x, y);
+}
+
+[doc showMessage: numUnlocked + " unlocked"];
+
+function findAndUnlockLayers(layers, x, y) {
+	for (var j = 0; j < [layers count]; j++) {
+		var layer = [layers objectAtIndex:j];
+		var rect = layer.absoluteRect();
+		var minX = rect.rulerX();
+		var minY = rect.rulerY();
+		var maxX = minX + rect.width();
+		var maxY = minY + rect.height();
+
+		if (x > minX && x < maxX && y > minY && y < maxY) {
+			unlockLayer(layer);
+
+			if ([layer isMemberOfClass:[MSLayerGroup class]]) {
+				var childLayers = [layer layers];
+
+				for (var k = 0; k < [childLayers count]; k++) {
+					var childLayer = [childLayers objectAtIndex:k];
+					unlockLayer(childLayer);
+				}
+			}
+		}
+	}
+}
+
+function unlockLayer(layer) {
+	if ([layer isLocked]) {
+		[layer setIsLocked: false];
+		numUnlocked++;
+	}
+}

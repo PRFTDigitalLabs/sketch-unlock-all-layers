@@ -1,0 +1,26 @@
+// (cmd alt l)
+
+var artboard = [[doc currentPage] currentArtboard];
+
+if (artboard != null) {
+	var numUnlocked = 0;
+	unlockLayers([artboard layers]);
+	[doc showMessage: numUnlocked + " unlocked"];
+} else {
+	[doc showMessage: "Please select an artboard to unlock"];
+}
+
+function unlockLayers(layers) {
+	for (var i = 0; i < [layers count]; i++) {
+		var layer = [layers objectAtIndex:i];
+
+		if ([layer isLocked]) {
+			[layer setIsLocked: false];
+			numUnlocked++;
+		}
+
+		if ([layer isMemberOfClass:[MSLayerGroup class]]) {
+			unlockLayers([layer layers]);
+		}
+	}
+}
