@@ -1,12 +1,19 @@
 // (cmd l)
 
 var page = [doc currentPage];
-var layers = [page children];
+var artboard = [[doc currentPage] currentArtboard];
 var handler = doc.eventHandlerManager().normalHandler();
 var numUnlocked = 0;
 var point = [handler convertPointFromScreenCoordinates:[[[handler drawView] window] mouseLocationOutsideOfEventStream] inGroup:page];
 var x = point.x;
 var y = point.y;
+var layers;
+
+if (artboard != null) {
+	layers = [artboard layers];
+} else {
+	layers = [page children];
+}
 
 for (var i = 0; i < [layers count]; i++) {
 	var layer = [layers objectAtIndex:i];
