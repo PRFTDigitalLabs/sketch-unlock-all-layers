@@ -1,13 +1,13 @@
 // (cmd alt l)
 
+var page = [doc currentPage];
 var artboard = [[doc currentPage] currentArtboard];
+var numUnlocked = 0;
 
 if (artboard != null) {
-	var numUnlocked = 0;
 	unlockLayers([artboard layers]);
-	[doc showMessage: numUnlocked + " unlocked"];
-} else {
-	[doc showMessage: "Please select an artboard to unlock"];
+} else if (confirmUnlockEverything()) {
+	unlockLayers([page children]);
 }
 
 function unlockLayers(layers) {
@@ -23,4 +23,15 @@ function unlockLayers(layers) {
 			unlockLayers([layer layers]);
 		}
 	}
+
+	[doc showMessage: numUnlocked + " unlocked"];
+}
+
+function confirmUnlockEverything() {
+	var alert = NSAlert.alloc().init();
+	alert.setMessageText("No artboard selected. Unlock all layers on this page?");
+	alert.addButtonWithTitle("Yes");
+	alert.addButtonWithTitle("No");
+	var responseCode = alert.runModal();
+	return responseCode === 1000;
 }
