@@ -1,0 +1,21 @@
+{
+    "name": "Unlock All Layers",
+    "identifier": "com.truthlabs.unlockalllayers",
+    "version": "2.0",
+    "description": "Unlock all layers on the current artboard using ⌘⌥L",
+    "authorEmail": "hello@truthlabs.com",
+    "author": "Truth Labs",
+    "commands": [{
+        "script": "unlockalllayers.js",
+        "handler": "onRun",
+        "shortcut": "cmd alt l",
+        "name": "Unlock All Layers",
+        "identifier": "unlockalllayers"
+    }],
+    "menu": {
+        "isRoot": true,
+        "items": [
+            "unlockalllayers"
+        ]
+    }
+}
