@@ -1,4 +1,4 @@
-# Unlock All Layers & Unlock Hover
+# Unlock All Layers
 Unlock all layers on the current artboard using ⌘⌥L
 
 ## The problem
