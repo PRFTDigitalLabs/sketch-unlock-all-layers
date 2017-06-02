@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Unlock All Layers</title>
+        <link>https://raw.githubusercontent.com/truthlabs/sketch-unlock-all-layers/master/appcast.xml</link>
+        <description>Unlock all layers on the current artboard using ⌘⌥L</description>
+        <language>en</language>
+        <item>
+            <title>Version 2.1</title>
+            <description>
+                <![CDATA[
+                    <ul>
+                        <li>Updated to support updates (meta)</li>
+                    </ul>
+                ]]>
+            </description>
+            <pubDate>Fri, 02 Jun 2017 17:00:00 +0000</pubDate>
+            <enclosure url="https://github.com/truthlabs/sketch-unlock-all-layers/archive/master.zip" sparkle:version="2.1" length="0" type="application/octet-stream"/>
+        </item>
+    </channel>
+</rss>

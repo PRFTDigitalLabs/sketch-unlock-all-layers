@@ -1,7 +1,8 @@
 {
     "name": "Unlock All Layers",
     "identifier": "com.truthlabs.unlockalllayers",
-    "version": "2.0",
+    "appcast": "https://raw.githubusercontent.com/truthlabs/sketch-unlock-all-layers/master/appcast.xml",
+    "version": "2.1",
     "description": "Unlock all layers on the current artboard using ⌘⌥L",
     "authorEmail": "hello@truthlabs.com",
     "author": "Truth Labs",
@@ -14,8 +15,6 @@
     }],
     "menu": {
         "isRoot": true,
-        "items": [
-            "unlockalllayers"
-        ]
+        "items": ["unlockalllayers"]
     }
 }
