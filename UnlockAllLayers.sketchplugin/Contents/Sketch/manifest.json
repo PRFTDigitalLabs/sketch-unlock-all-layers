@@ -2,7 +2,7 @@
     "name": "Unlock All Layers",
     "identifier": "com.truthlabs.unlockalllayers",
     "appcast": "https://raw.githubusercontent.com/truthlabs/sketch-unlock-all-layers/master/appcast.xml",
-    "version": "2.1",
+    "version": "2.2",
     "description": "Unlock all layers on the current artboard using ⌘⌥L",
     "authorEmail": "hello@truthlabs.com",
     "author": "Truth Labs",
