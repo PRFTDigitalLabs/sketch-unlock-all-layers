@@ -6,18 +6,6 @@
         <description>Unlock all layers on the current artboard using ⌘⌥L</description>
         <language>en</language>
         <item>
-            <title>Version 2.2</title>
-            <description>
-                <![CDATA[
-                    <ul>
-                        <li>Test update</li>
-                    </ul>
-                ]]>
-            </description>
-            <pubDate>Mon, 07 Jun 2017 13:25:00 +0000</pubDate>
-            <enclosure url="https://github.com/truthlabs/sketch-unlock-all-layers/archive/2.2.zip" sparkle:version="2.2" length="10478852" type="application/octet-stream"/>
-        </item>
-        <item>
             <title>Version 2.1</title>
             <description>
                 <![CDATA[
@@ -26,8 +14,8 @@
                     </ul>
                 ]]>
             </description>
-            <pubDate>Fri, 02 Jun 2017 17:00:00 +0000</pubDate>
-            <enclosure url="https://github.com/truthlabs/sketch-unlock-all-layers/archive/2.1.zip" sparkle:version="2.1" length="10478850" type="application/octet-stream"/>
+            <pubDate>Thu, 08 Jun 2017 14:30:00 +0000</pubDate>
+            <enclosure url="https://github.com/truthlabs/sketch-unlock-all-layers/archive/2.1.zip" sparkle:version="2.1" length="0" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
